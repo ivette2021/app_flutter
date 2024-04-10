@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app_flutter/screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp()); //colocA CONST EN El widget
@@ -10,9 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Center(
-      child: Text('Bienvenido'),
-    ));
+        debugShowCheckedModeBanner: false,
+        home: HomeScreen()); //importan la clase
   }
 }
 
