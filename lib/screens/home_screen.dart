@@ -7,11 +7,22 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //es como el f12 del navegador
-    return const Scaffold(
+    return Scaffold(
         //esto prepara mi sitio es el fondo blanco
-        backgroundColor: Colors.indigo,
-        body: Center(
-          child: Text('HomeScreen'),
+        appBar: AppBar(
+          //funciona sin const
+          backgroundColor: Colors.teal.shade400,
+          title: const Text('CounterApp'),
+          elevation: 30.0,
+        ),
+        backgroundColor: Colors.indigo.shade900,
+        body: const Center(
+          child: Column(
+            children: <Widget>[
+              Text('primera Linea'),
+              Text('Segunda Linea'),
+            ],
+          ),
         ));
   }
 }
