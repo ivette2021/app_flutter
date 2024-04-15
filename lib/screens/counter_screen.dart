@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class CounterScreen extends StatefulWidget {
   const CounterScreen({super.key});
@@ -50,17 +51,55 @@ class _CounterScreenState extends State<CounterScreen> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(
-          Icons.add,
-          color: Colors.indigo,
-        ), //Icon es un widget especializado en mostrar iconos
-        onPressed: () {
-          counter++;
-          setState(() {
-            //sirve para volver a redibujar el widget
-          });
-        },
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        //mainAxisAlignment: MainAxisAlignment.spaceEvenly,//si no quieres usar el sizedBox este funciona muy bien
+        children: [
+          FloatingActionButton(
+            child: const Icon(
+              Icons.arrow_back_ios,
+              color: Colors.indigo,
+            ), //Icon es un widget especializado en mostrar iconos
+            onPressed: () {
+              counter--;
+              setState(() {
+                //sirve para volver a redibujar el widget
+              });
+            },
+          ),
+
+          const SizedBox(
+            width: 30,
+          ), //este widget se usa para separar o hacer figuras geometricas y puede ser invisible
+          FloatingActionButton(
+            child: const Icon(
+              Icons.restart_alt_rounded,
+              color: Colors.indigo,
+            ), //Icon es un widget especializado en mostrar iconos
+            onPressed: () {
+              counter = 0;
+              setState(() {
+                //sirve para volver a redibujar el widget
+              });
+            },
+          ),
+          const SizedBox(
+            width: 30,
+          ),
+          FloatingActionButton(
+            child: const Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.indigo,
+            ), //Icon es un widget especializado en mostrar iconos
+            onPressed: () {
+              counter++;
+              setState(() {
+                //sirve para volver a redibujar el widget
+              });
+            },
+          ),
+        ],
       ),
     );
   }
