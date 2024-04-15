@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CounterScreen extends StatefulWidget {
-  CounterScreen({super.key});
+  const CounterScreen({super.key});
 
   @override
   State<CounterScreen> createState() => _CounterScreenState();
@@ -58,7 +58,7 @@ class _CounterScreenState extends State<CounterScreen> {
         onPressed: () {
           counter++;
           setState(() {
-            //sirve para volver a redibujar
+            //sirve para volver a redibujar el widget
           });
         },
       ),
