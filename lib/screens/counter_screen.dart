@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen(
-      {super.key}); //constructor, el key nos sirve parta identificar el widget dentro del contexto
+class CounterScreen extends StatefulWidget {
+  CounterScreen({super.key});
+
+  @override
+  State<CounterScreen> createState() => _CounterScreenState();
+}
+
+class _CounterScreenState extends State<CounterScreen> {
+  //constructor, el key nos sirve parta identificar el widget dentro del contexto
+
+  int counter = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -12,14 +20,13 @@ class HomeScreen extends StatelessWidget {
         fontSize: 30,
         color: Colors
             .white); //se creo una varibale para la fuente, para reutilizar
-    int counter = 10;
 
     return Scaffold(
       //esto prepara mi sitio es el fondo blanco
       appBar: AppBar(
         //funciona sin const
         backgroundColor: Colors.teal.shade400,
-        title: const Text('HomeScreen'),
+        title: const Text('CounterScreen'),
         elevation: 30.0,
       ),
       backgroundColor: Colors.indigo.shade900,
@@ -49,8 +56,10 @@ class HomeScreen extends StatelessWidget {
           color: Colors.indigo,
         ), //Icon es un widget especializado en mostrar iconos
         onPressed: () {
-          print('Clicks Totales: $counter');
           counter++;
+          setState(() {
+            //sirve para volver a redibujar
+          });
         },
       ),
     );
