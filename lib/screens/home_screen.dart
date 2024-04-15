@@ -12,6 +12,7 @@ class HomeScreen extends StatelessWidget {
         fontSize: 30,
         color: Colors
             .white); //se creo una varibale para la fuente, para reutilizar
+    int counter = 10;
 
     return Scaffold(
       //esto prepara mi sitio es el fondo blanco
@@ -22,20 +23,20 @@ class HomeScreen extends StatelessWidget {
         elevation: 30.0,
       ),
       backgroundColor: Colors.indigo.shade900,
-      body: const Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center, //centrado en todos lados
           children: <Widget>[
-            Text(
-              'Primera Linea',
+            const Text(
+              'Contador',
               style: TextStyle(fontSize: 30, color: Colors.amber),
             ),
-            Text(
-              'Primera Linea',
+            const Text(
+              'Numero de Clicks:',
               style: fontSize30, //llamamos la variable
             ),
             Text(
-              'Segunda Linea',
+              '$counter',
               style: TextStyle(
                   fontSize: 20, color: Color.fromARGB(255, 255, 98, 140)),
             ),
@@ -48,7 +49,8 @@ class HomeScreen extends StatelessWidget {
           color: Colors.indigo,
         ), //Icon es un widget especializado en mostrar iconos
         onPressed: () {
-          print('Hola Mundo');
+          print('Clicks Totales: $counter');
+          counter++;
         },
       ),
     );
