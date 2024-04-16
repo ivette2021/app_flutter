@@ -53,51 +53,35 @@ class _CounterScreenState extends State<CounterScreen> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        //mainAxisAlignment: MainAxisAlignment.spaceEvenly,//si no quieres usar el sizedBox este funciona muy bien
+        //aqui en Row podriamos extraer metodo pero sin los counter
+        //mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment
+            .spaceEvenly, //si no quieres usar el sizedBox este funciona muy bien
+
         children: [
           FloatingActionButton(
             child: const Icon(
               Icons.arrow_back_ios,
               color: Colors.indigo,
             ), //Icon es un widget especializado en mostrar iconos
-            onPressed: () {
-              counter--;
-              setState(() {
-                //sirve para volver a redibujar el widget
-              });
-            },
+            onPressed: () => setState(() => counter--),
           ),
 
-          const SizedBox(
-            width: 30,
-          ), //este widget se usa para separar o hacer figuras geometricas y puede ser invisible
+          //const SizedBox(width: 30,), //este widget se usa para separar o hacer figuras geometricas y puede ser invisible
           FloatingActionButton(
             child: const Icon(
               Icons.restart_alt_rounded,
               color: Colors.indigo,
             ), //Icon es un widget especializado en mostrar iconos
-            onPressed: () {
-              counter = 0;
-              setState(() {
-                //sirve para volver a redibujar el widget
-              });
-            },
+            onPressed: () => setState(() => counter = 0),
           ),
-          const SizedBox(
-            width: 30,
-          ),
+
           FloatingActionButton(
             child: const Icon(
               Icons.arrow_forward_ios,
               color: Colors.indigo,
             ), //Icon es un widget especializado en mostrar iconos
-            onPressed: () {
-              counter++;
-              setState(() {
-                //sirve para volver a redibujar el widget
-              });
-            },
+            onPressed: () => setState(() => counter++),
           ),
         ],
       ),
